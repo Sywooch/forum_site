@@ -4,8 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d475ab21337d6c1b1730942b8944dba",
+    "content-hash": "ca8585d3a500f14e926d492b84ce25a5",
     "packages": [
+        {
+            "name": "aneeshikmat/yii2-time-down-counter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aneeshikmat/yii2-time-down-counter.git",
+                "reference": "0a78c856b767ce12774162611367d712d3f4601b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aneeshikmat/yii2-time-down-counter/zipball/0a78c856b767ce12774162611367d712d3f4601b",
+                "reference": "0a78c856b767ce12774162611367d712d3f4601b",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "type": "yii2-widget",
+            "autoload": {
+                "psr-4": {
+                    "aneeshikmat\\yii2\\Yii2TimerCountDown\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anees Hikmat",
+                    "email": "aneeshikmat@gmail.com"
+                }
+            ],
+            "description": "Widget for yii2, to start count down timer with a lot of options, This widget build dependence of timeDownCounter JS library",
+            "keywords": [
+                "counter",
+                "down",
+                "time",
+                "widget",
+                "yii2",
+                "yii2 countdown timer",
+                "yii2 timer"
+            ],
+            "time": "2018-04-09T17:59:20+00:00"
+        },
         {
             "name": "bizley/podium",
             "version": "0.7",
@@ -3767,7 +3812,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "aneeshikmat/yii2-time-down-counter": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

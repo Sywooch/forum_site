@@ -6,8 +6,9 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'language' => 'ru-RU',
+	'layout' => 'kaso',
     'charset' => 'utf-8',
-    'name' => 'Forum Clever',
+    'name' => 'Clever',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'podium'],
 	'modules' => [
@@ -27,7 +28,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'bizley\podium\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [

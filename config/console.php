@@ -28,6 +28,18 @@ $config = [
             ],
         ],
         'db' => $db,
+		'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'ayderumerov.com@gmail.com',
+                'password' => 'vlqqxgxfhnvovnrc',
+                'port' => '465',
+                'encryption' => 'ssl',
+            ],
+        ],
     ],
     'params' => $params,
     /*
