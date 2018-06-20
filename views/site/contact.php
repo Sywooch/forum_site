@@ -10,6 +10,7 @@ use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
 $this->title = 'Отзывы';
+// echo sizeof($contacts);
 ?>
 <!--breadcrumbs start-->
 <div class="breadcrumbs">
@@ -39,8 +40,55 @@ $this->title = 'Отзывы';
     <!--breadcrumbs end-->
 <div class="site-contact">
 
-    <h1 align="center"><?= Html::encode($this->title) ?></h1>
+    <div class="media container">
+      <h3>
+        Отзывы пользователей
+      </h3>
+      <hr>
 
+      <?php foreach($contacts as $contact):?>
+        <a class="pull-left" href="javascript:;">
+          <img class="media-object" src="/img/person_1.png" alt="">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">
+            <?=$contact->name?>
+            <span>
+              |
+            </span>
+            <span>
+              <?php 
+                setlocale(LC_ALL, 'ru_RU.UTF-8');
+                $Month_r = array(
+                    "01" => "января",
+                    "02" => "февраля",
+                    "03" => "марта",
+                    "04" => "апреля",
+                    "05" => "мая",
+                    "06" => "июня",
+                    "07" => "июля",
+                    "08" => "августа",
+                    "09" => "сентября",
+                    "10" => "октября",
+                    "11" => "ноября",
+                    "12" => "декабря");
+                $date = strtotime($contact->date);
+                $begin_month = date('m', strtotime($contact->date)); // месяц на eng
+                $rus_month_begin = $Month_r[$begin_month];
+              ?>
+              <?=$url = date('d ', strtotime($contact->date)) . $rus_month_begin
+                    . date(' Y', $weekDate);?>
+            </span>
+          </h4>
+          <p>
+            <?=$contact->body?>
+          </p>        
+          <!--end media-->
+          <hr>
+          <!--end media-->
+        </div>
+      <?php endforeach; ?>
+    </div>
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
         <div  align="center" class="alert alert-success">
@@ -50,52 +98,8 @@ $this->title = 'Отзывы';
     <?php else: ?>
 
          <div class="row">
-        <div class="col-lg-5 col-sm-5 address">
-          <section class="contact-infos">
-            <h4 class="title custom-font text-black">
-              ADDRESS
-            </h4>
-            <address>
-              Revox
-              Crossraid, 85/B Cross Street,
-              <br>
-              New York, USA
-              <br>
-              NA1 42SL
-            </address>
-          </section>
-          <section class="contact-infos">
-            <h4 class="title custom-font text-black">
-              BUSINESS HOURS
-            </h4>
-            <p>
-              Monday - Friday 8am to 4pm
-              <br>
-              Saturday - 7am to 6pm
-              <br>
-              Sunday- Closed
-              <br>
-            </p>
-          </section>
-          <section class="contact-infos">
-            <h4>
-              TELEPHONE
-            </h4>
-            <p>
-              <i class="icon-phone">
-              </i>
-              +088-01234567890
-            </p>
-
-            <p>
-              <i class="icon-phone">
-              </i>
-              +088-01234567890
-            </p>
-
-          </section>
-        </div>
-        <div class="col-lg-7 col-sm-7 address">
+        
+        <div class="col-lg-5 col-sm-5 address" style="margin-left:+30%;">
           <h3>
             Напишите несколько строк и мы вас услышим
           </h3>
@@ -115,7 +119,7 @@ $this->title = 'Отзывы';
             ]) ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

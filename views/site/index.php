@@ -2,648 +2,301 @@
 
 /* @var $this yii\web\View */
 use aneeshikmat\yii2\Yii2TimerCountDown\Yii2TimerCountDown;
+use yii\helpers\Url;
 
 $this->title = 'My Yii Application';
 ?>
-  <!-- Sequence Modern Slider -->
-    <div id="da-slider" class="da-slider">
 
-            <div class="da-slide">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-              <h2>
-                <i>CLEAN &amp; FRESH</i>
-                <br>
-                <i>RESPONSIVE</i>
-                <br>
-                <i>DESIGN</i>
-              </h2>
-              <p>
-                <i>Lorem ipsum dolor amet</i>
-                <br />
-                <i>veniam omnis</i>
-              </p>
-              <a href="#" class="btn btn-info btn-lg da-link">
-                Read more
-              </a>
-              <div class="da-img">
-                <img src="img/parallax-slider/images/2.png" alt="image01" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+	
+     <!-- Sequence Modern Slider -->
+     <div id="da-slider" class="da-slider">
 
-
-            <div class="da-slide">
-            <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-        <h2>
-          <i>RESPONSIVE VIDEO</i>
-            <br />
-          <i>SUPPORT AND</i>
-            <br />
-          <i>MANY MORE</i>
-        </h2>
-        <p>
-          <i>Lorem ipsum dolor amet</i>
-            <br />
-          <i>tempor incididunt ut</i>
-        </p>
-        <a href="#" class="btn btn-info btn-lg da-link">
-          Read more
-        </a>
-        <div class="da-img">
-          <img src="img/parallax-slider/images/3.png" alt="image01" />
-        </div>
-      </div>
-          </div>
-        </div>
-      </div>
+<div class="da-slide">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+  <h2>
+    <i>УЧАВСТВУЙТЕ</i>
+    <br>
+    <i>В ИГРЕ</i>
+    
+  </h2>
+  <p>
+    <i>	Каждый день </i>
+    <br />
+    <i>По будням в 13:00 и 20:00 по Мск</i>
+<br />
+    <i>По выходным в 20:00 по Мск</i>
+  </p>
+  <div class="da-img">
+    <img src="/img/mob11.png" alt="image01" />
+  </div>
+</div>
+</div>
+</div>
+</div>
 
 
-      <div class="da-slide">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-        <h2>
-          <i>USING BEST WEB</i>
-            </br>
-          <i>SOLUTIONS WITH</i>
-            </br>
-          <i>HTML5/CSS3</i>
-        </h2>
-        <p>
-          <i>Lorem ipsum dolor amet</i>
-          <br />
-          <i>tempor incididunt ut</i>
-          <br />
-          <i>veniam omnis </i>
-        </p>
-        <a href="#" class="btn btn-info btn-lg da-link">
-          Read more
-        </a>
-        <div class="da-img">
-          <img src="img/parallax-slider/images/1.png" alt="image01" />
-        </div>
-      </div>
-      </div>
-      </div>
-      </div>
+<div class="da-slide">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h2>
+<i>ОТВЕЧАЙТЕ </i>
+<br>
+    <i>НА ВОПРОСЫ</i>
+</h2>
+<p>
+<i>Ответьте правильно всего на 12 вопросов</i>
+<br />
+<i>И денежный приз Ваш</i>
+</p>
 
-      <nav class="da-arrows">
-        <span class="da-arrows-prev">
-        </span>
-        <span class="da-arrows-next">
-        </span>
-      </nav>
-    </div>
+<div class="da-img">
+<img src="/img/tab11.png" alt="image01" />
+</div>
+</div>
+</div>
+</div>
+</div>
 
-	<?php
+
+<div class="da-slide">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h2>
+<i>ВЫИГРЫВАЙТЕ </i>
+<br>
+    <i>ДЕНЬГИ</i>
+</h2>
+<p>
+<i>Сумма, заявленная перед трансляцией</i>
+<br />
+<i>Будет разделена между </i>
+<br />
+<i>Всеми победителями </i>
+</p>
+
+<div class="da-img">
+<img src="/img/3.png" alt="image01" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<nav class="da-arrows">
+<span class="da-arrows-prev">
+</span>
+<span class="da-arrows-next">
+</span>
+</nav>
+</div>
+
+<h2 align="center" style="">
+  До начала следующей трансляции:
+</h2>
+
+<?php
 	  $callBackScript = 
-				"alert('Timer Count Down 6 Is finshed!!')";
+				"alert('Трансляция началась!')";
 				;
 	?>
 
-        <div id="time-down-counter-2" class="text-center" style="margin-top:20px;"></div>
+        <div id="time-down-counter-2" class="text-center timer_styling" ></div>
         <?= Yii2TimerCountDown::widget([
             'countDownIdSelector' => 'time-down-counter-2',
-            'countDownDate' => strtotime('+100 minutes') * 1000,// You most * 1000 to convert time to milisecond
+            'countDownDate' => strtotime("20:00:00") * 1000,// You most * 1000 to convert time to milisecond
             'countDownResSperator' => ':',
             'addSpanForResult' => false,
             'addSpanForEachNum' => false,
-            'countDownOver' => 'Expired',
+            'countDownOver' => 'Трансляция началась!',
             'countDownReturnData' => 'from-days',
             'templateStyle' => 1,
             'getTemplateResult' => 0,
-            'callBack' => $callBackScript
+            'callBack' => ''
         ]) ?>
-		<div class="container" align="center">
-			<a href='https://play.google.com/store/apps/details?id=com.vk.quiz&hl=ru&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='img/google-play-badge.png'
-				style="height:175px;width:425px;"
+
+<div class="container">
+<div class="row mar-b-50">
+<div class="col-md-12">
+<div class="text-center feature-head wow fadeInDown">
+<h1 class="">
+  Добро пожаловать в Клевер
+</h1>
+
+</div>
+
+
+<div class="feature-box">
+<div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+  <div class="feature-box-heading">
+    <em>
+    <img src="/img/11.png" alt="" width="100" height="100">
+
+    </em>
+    <h4>
+      <b>Более 5 миллионов скачиваний</b>
+    </h4>
+  </div>
+  
+</div>
+<div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+  <div class="feature-box-heading">
+    <em>
+      <img src="/img/2.png" alt="" width="100" height="100">
+    </em>
+    <h4>
+      <b>Более 700 тысяч человек в игре каждый день</b>
+    </h4>
+  </div>
+  
+</div>
+<div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+  <div class="feature-box-heading">
+    <em>
+      <img src="/img/coins-icon.png" alt="" width="100" height="100">
+    </em>
+    <h4>
+      <b>Более 20 миллионов рублей разыграно</b>
+    </h4>
+  </div>
+</div>
+</div>
+
+<!--feature end-->
+</div>
+</div>
+</div>
+
+
+<!--property start-->
+<div class="property gray-bg">
+<div class="container">
+<div class="row">
+<div class="col-lg-6 col-sm-6 text-center wow fadeInLeft">
+<img src="/img/phone-frame.png" alt="">
+</div>
+<div class="col-lg-6 col-sm-6 wow fadeInRight">
+
+  <h1>
+  <a name="about"> Об Игре </a>
+  </h1>
+<hr>
+<p>
+  <i class="fa fa-check fa-lg pr-10">
+  </i>
+  Клевер - это онлайн-игра, которая была создана социальной сетью "ВКонтакте" вместе с творческой лабораторией Ивана Урганта. Приложение появилось в сети 14-го марта, в первый же месяц завоевав миллионы поклонников.
+</p>
+<p>
+  <i class="fa fa-check fa-lg pr-10">
+  </i>
+  Принцип игры - правильно ответив на все 12 вопросов викторины, победители делят между собой призовой фонд, который варьируется от 50 до 500 тысяч рублей. У игроков есть 1 право на ошибку - это дополнительные жизни, которые можно получить за приглашение в игру друзей или купить за внутриигровую валюту - клеверсы.
+</p>
+<p>
+  <i class="fa fa-check fa-lg pr-10">
+  </i>
+  Игры проводятся ежедневно в 13 и 20 часов по МСК, по выходным - только в 20:00, но и призовой фонд во время выходных составляет 100 тысяч рублей. Это приложение позволит любому пользователю социальной сети "ВКонтакте" зарабатывать своей логикой.
+</p>
+<hr>
+
+</div>
+</div>
+</div>
+</div>
+<!--property end-->
+
+<div id="home-services">
+
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h2>
+  Если понадобилась помощь
+</h2>
+</div>
+
+<div class="col-md-4">
+<div class="h-service">
+  <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
+    <i class="fa fa-question">
+    </i>
+  </div>
+  <div class="h-service-content wow fadeInUp">
+    <h3>
+      Вопросы
+    </h3>
+    <p>
+      Ответы на Часто Задаваемые Вопросы
+      <br>
+      <a href="<?=Url::to('/site/about')?>">
+        Узнать больше
+      </a>
+    </p>
+  </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="h-service">
+  <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
+    <i class="fa fa-h-square">
+    </i>
+  </div>
+  <div class="h-service-content wow fadeInUp">
+    <h3>
+      Что-то непонятно?
+    </h3>
+    <p>
+      Напишите нам и мы ответим.
+      <br>
+      <a href="<?=Url::to('/site/contact')?>">
+        Узнать больше
+      </a>
+    </p>
+  </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="h-service">
+  <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
+    <i class="fa fa-users">
+    </i>
+  </div>
+  <div class="h-service-content wow fadeInUp">
+    <h3>
+      Посетите Форум
+    </h3>
+    <p>
+      Сообщество, где можно обмениваться мнениями об игре
+      <br>
+      <a href="<?=Url::to('/podium/home')?>">
+        Узнать больше 
+      </a>
+    </p>
+  </div>
+</div>
+</div>
+</div>
+<!-- /row -->
+
+</div>
+<!-- /container -->
+
+</div>
+<!-- service end -->
+<div class="hr">
+<span class="hr-inner"></span>
+</div>
+
+<h2 align="center">
+  <a name="download">Скачать приложение:</a>
+</h2>
+<div class="container" align="center">
+			<a href='https://play.google.com/store/apps/details?id=com.vk.quiz&hl=ru&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='/img/google-play-badge.png'
+				style="height:160px;width:425px;"
 			/></a>
-			<br/>
-			<a href='https://itunes.apple.com/ru/app/клевер-игра-с-призами/id1357577712?mt=8'><img alt='Get it on App Store' src='img/app-store-badge.svg'
+			<a href='https://itunes.apple.com/ru/app/клевер-игра-с-призами/id1357577712?mt=8'><img alt='Get it on App Store' src='/img/app-store-badge.svg'
 				style="height:150px;width:325px;"
 			/></a>
 		</div>
-	
-    <div class="container">
-	
-      <div class="row mar-b-50">
-        <div class="col-md-12">
-          <div class="text-center feature-head wow fadeInDown">
-            <h1 class="">
-              welcome to Kaso
-            </h1>
-
-          </div>
-
-
-          <div class="feature-box">
-            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
-              <div class="feature-box-heading">
-                <em>
-                <img src="img/1.png" alt="" width="100" height="100">
-
-                </em>
-                <h4>
-                  <b>Multipurpose Template</b>
-                </h4>
-              </div>
-              <p class="text-center">
-                Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris.
-              </p>
-            </div>
-            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
-              <div class="feature-box-heading">
-                <em>
-                  <img src="img/2.png" alt="" width="100" height="100">
-                </em>
-                <h4>
-                  <b>Well Documented</b>
-                </h4>
-              </div>
-              <p class="text-center">
-                Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris.
-              </p>
-            </div>
-            <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
-              <div class="feature-box-heading">
-                <em>
-                  <img src="img/3.png" alt="" width="100" height="100">
-                </em>
-                <h4>
-                  <b>Responsive Design</b>
-                </h4>
-              </div>
-              <p class="text-center">
-                Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris.
-              </p>
-            </div>
-          </div>
-
-          <!--feature end-->
-        </div>
-      </div>
-    </div>
-
-
-    <!--property start-->
-    <div class="property gray-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-sm-6 text-center wow fadeInLeft">
-            <img src="img/tab1.png" alt="">
-          </div>
-          <div class="col-lg-6 col-sm-6 wow fadeInRight">
-            <h1>
-              Mobile ready
-            </h1>
-            <hr>
-            <p>
-              <i class="fa fa-check fa-lg pr-10">
-              </i>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ablic jiener. natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ablic jiener. natus error sit voluptatem accusantiu.
-            </p>
-            <p>
-              <i class="fa fa-check fa-lg pr-10">
-              </i>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ablic jiener. natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ablic jiener. natus error sit voluptatem accusantiu.
-            </p>
-            <p>
-              <i class="fa fa-check fa-lg pr-10">
-              </i>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ablic jiener.
-            </p>
-            <hr>
-            <a href="javascript:;" class="btn btn-purchase">
-              Purchase now
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--property end-->
-
-    <div class="container">
-
-      <div class="row mar-b-60">
-        <div class="col-lg-6">
-          <!--tab start-->
-          <section class="tab wow fadeInLeft">
-            <header class="panel-heading tab-bg-dark-navy-blue">
-              <ul class="nav nav-tabs nav-justified ">
-                <li class="active">
-                  <a data-toggle="tab" href="#news">
-                    News
-                  </a>
-                </li>
-                <li>
-                  <a data-toggle="tab" href="#events">
-                    Events
-                  </a>
-                </li>
-                <li class="">
-                  <a data-toggle="tab" href="#notice-board">
-                    Notice board
-                  </a>
-                </li>
-              </ul>
-            </header>
-            <div class="panel-body">
-              <div class="tab-content tasi-tab">
-                <div id="news" class="tab-pane fade in active">
-                  <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                      <img src="img/product1.jpg" alt="">
-                    </a>
-                    <div class="media-body b-btm">
-                      <a href="#" class=" p-head">
-                        News Tittle goes here
-                      </a>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </div>
-                  </article>
-                  <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                      <img src="img/product2.jpg" alt="">
-                    </a>
-                    <div class="media-body b-btm">
-                      <a href="#" class=" p-head">
-                        News Tittle goes here 2
-                      </a>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. simsut dorlor
-                      </p>
-                    </div>
-                  </article>
-                  <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                      <img src="img/product1.jpg" alt="">
-                    </a>
-                    <div class="media-body b-btm">
-                      <a href="#" class=" p-head">
-                        News Tittle goes here 3
-                      </a>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. sumon ahmed
-                      </p>
-                    </div>
-                  </article>
-                </div>
-                <div id="events" class="tab-pane fade">
-                  <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                      <!--image goes here-->
-                    </a>
-                    <div class="media-body b-btm">
-                      <a href="#" class="cmt-head">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </a>
-                      <p>
-
-                        <i class="fa fa-time">
-                        </i>
-                        1 hours ago
-                      </p>
-                    </div>
-                  </article>
-                  <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                      <!--image goes here-->
-                    </a>
-                    <div class="media-body b-btm">
-                      <a href="#" class="cmt-head">
-                        Nulla vel metus scelerisque ante sollicitudin commodo
-                      </a>
-                      <p>
-
-                        <i class="fa fa-time">
-                        </i>
-                        23 mins ago
-                      </p>
-                    </div>
-                  </article>
-                  <article class="media">
-                    <a class="pull-left thumb p-thumb">
-                      <!--image goes here-->
-                    </a>
-                    <div class="media-body b-btm">
-                      <a href="#" class="cmt-head">
-                        Donec lacinia congue felis in faucibus.
-                      </a>
-                      <p>
-
-                        <i class="fa fa-time">
-                        </i>
-                        15 mins ago
-                      </p>
-                    </div>
-                  </article>
-                </div>
-                <div id="notice-board" class="tab-pane fade">
-                  <p>
-                    Notice board goes here Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ablic jiener.
-                  </p>
-                  <p>
-                    Notice board goes here Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ablic jiener.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!--tab end-->
-        </div>
-        <div class="col-lg-6">
-          <!--testimonial start-->
-          <div class="about-testimonial boxed-style about-flexslider ">
-            <section class="slider wow fadeInRight">
-              <div class="flexslider">
-                <ul class="slides about-flex-slides">
-                  <li>
-                    <div class="about-testimonial-image ">
-                      <img alt="" src="img/person_1.png">
-                    </div>
-                    <a class="about-testimonial-author" href="#">
-                      Russel Reagan
-                    </a>
-                    <span class="about-testimonial-company">
-                      CCD Realestate
-                    </span>
-                    <div class="about-testimonial-content">
-                      <p class="about-testimonial-quote">
-                        Donec ut purus sed tortor malesuada venenatis eget eget lorem. Nullam tempor lectus a ligula lobortis pretium. Donec ut purus sed tortor malesuada venenatis eget eget lorem.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="about-testimonial-image ">
-                      <img alt="" src="img/person_2.png">
-                    </div>
-                    <a class="about-testimonial-author" href="#">
-                      Steven gerrard
-                    </a>
-                    <span class="about-testimonial-company">
-                      Molt BVG
-                    </span>
-                    <div class="about-testimonial-content">
-                      <p class="about-testimonial-quote">
-                        Pellentesque et pulvinar enim. Quisque at tempor ligula. Maecenas augue ante, euismod vitae egestas sit amet, accumsan eu nulla. Nullam tempor lectus a ligula lobortis pretium. Donec ut purus sed tortor malesuada venenatis eget eget lorem.
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </section>
-          </div>
-          <!--testimonial end-->
-        </div>
-        </div>
-      </div>
-
-      <!--recent work start-->
-    <div class="bg-lg">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 recent">
-            <h3 class="recent-work">
-              Recent Work
-            </h3>
-            <p>Some of our work we have done earlier</p>
-            <div id="owl-demo" class="owl-carousel owl-theme wow fadeIn">
-
-              <div class="item view view-tenth">
-                <img src="img/works/img8.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="blog-detail.html" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/works/img9.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="blog-detail.html" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/works/img10.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="blog-detail.html" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/works/img11.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="blog-detail.html" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/works/img12.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="blog-detail.html" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/works/img13.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="blog-detail.html" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--recent work end-->
-    </div>
-
-    <div id="home-services">
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2>
-              In case you need any help
-            </h2>
-          </div>
-
-          <div class="col-md-4">
-            <div class="h-service">
-              <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
-                <i class="fa fa-question">
-                </i>
-              </div>
-              <div class="h-service-content wow fadeInUp">
-                <h3>
-                  PRESALE QUESTION
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim  laborum.
-                  <br>
-                  <a href="#">
-                    Learn more
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="h-service">
-              <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
-                <i class="fa fa-h-square">
-                </i>
-              </div>
-              <div class="h-service-content wow fadeInUp">
-                <h3>
-                  NEED SUPPORT?
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim  laborum.
-                  <br>
-                  <a href="#">
-                    Learn more
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="h-service">
-              <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
-                <i class="fa fa-users">
-                </i>
-              </div>
-              <div class="h-service-content wow fadeInUp">
-                <h3>
-                  CHECK FORUM
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim  laborum.
-                  <br>
-                  <a href="#">
-                    Learn more
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /row -->
-
-      </div>
-      <!-- /container -->
-
-    </div>
-    <!-- service end -->
-    <div class="hr">
-      <span class="hr-inner"></span>
-    </div>
-
-    <div class="container">
-      <div class="row mar-b-50 our-clients">
-        <div class="col-md-3">
-          <h2>
-            Our Clients
-          </h2>
-          <p>
-            Lorem dipsum folor margade sitede lametep eiusmod psumquis dolore.Margade sitede lametep eiusmod.
-            lametep eiusmod psumquis dolore.
-          </p>
-        </div>
-        <div class="col-md-9">
-          <div class="outside">
-            <p>
-              <span id="slider-prev">
-              </span>
-              |
-              <span id="slider-next">
-              </span>
-            </p>
-          </div>
-
-          <ul class="bxslider1 clients-list">
-            <li>
-              <a href="#">
-                <img src="img/clients/graylogo6.png" alt="" />
-
-                <img src="img/clients/newlogo6.png" class="color-img" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="img/clients/graylogo6.png" alt="" />
-
-                <img src="img/clients/newlogo6.png" class="color-img" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="img/clients/graylogo6.png" alt="" />
-
-                <img src="img/clients/newlogo6.png" class="color-img" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="img/clients/graylogo6.png" alt="" />
-
-                <img src="img/clients/newlogo6.png" class="color-img" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="img/clients/graylogo6.png" alt="" />
-
-                <img src="img/clients/newlogo6.png" class="color-img" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="img/clients/graylogo6.png" alt="" />
-
-                <img src="img/clients/newlogo6.png" class="color-img" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="img/clients/graylogo6.png" alt="" />
-
-                <img src="img/clients/newlogo6.png" class="color-img" alt="" />
-              </a>
-            </li>
-
-          </ul>
-
-
-        </div>
-      </div>
-      <!-- END CLIENTS -->
-    </div>
-
-    <!--container end-->

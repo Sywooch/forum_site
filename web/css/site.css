@@ -113,3 +113,23 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+/* NEW SHEETS*/
+
+.timer_styling{
+    margin-top:20px;
+    color: #48cfad;
+    font-size:38px;
+}
+
+.mcFooter_menu.li{
+    font-size: 17px;
+    color:#fff;
+}
+
+.mcFooter_menu{
+    line-height: 31px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration-color:#fff;
+}

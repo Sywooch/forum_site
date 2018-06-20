@@ -12,6 +12,7 @@ use Yii;
  * @property int $email
  * @property string $subject
  * @property string $body
+ * @property string $date
  */
 class Contact extends \yii\db\ActiveRecord
 {
@@ -31,6 +32,9 @@ class Contact extends \yii\db\ActiveRecord
         return [
             [['name', 'email', 'subject', 'body'], 'required'],
             [['body'], 'string'],
+            [['date'], 'safe'],
+            [['date'], 'date', 'format' => 'php:Y-m-d'],
+            [['date'], 'default', 'value' => date('Y-m-d')],
             [['name', 'email'], 'string', 'max' => 50],
             [['subject'], 'string', 'max' => 100],
         ];
@@ -44,7 +48,7 @@ class Contact extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Имя',
-            'email' => 'Майл',
+            'email' => 'E-mail',
             'subject' => 'Тема',
             'body' => 'Отзыв',
         ];
