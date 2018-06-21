@@ -7,13 +7,15 @@ $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'podium'],
-    'modules' => [
-        'podium' => 'bizley\podium\Podium',
-    ],
     'controllerNamespace' => 'app\commands',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+    ],
+    'modules' => [
+        'podium' => [
+            'class' => 'bizley\podium\Podium',
+        ],
     ],
     'components' => [
         'cache' => [
@@ -41,6 +43,7 @@ $config = [
             ],
         ],
     ],
+    
     'params' => $params,
     /*
     'controllerMap' => [

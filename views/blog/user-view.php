@@ -10,6 +10,12 @@ use yii\grid\GridView;
 
 $this->title = 'Новости';
 $this->params['breadcrumbs'][] = $this->title;
+$ar = [
+  'nintendo.jpg',
+  'cach.jpg',
+  'nintendo.jpg',
+  'cach.jpg',
+];
 ?>
 
 
@@ -85,7 +91,7 @@ $this->params['breadcrumbs'][] = $this->title;
               </div>
               <div class="col-lg-10 col-sm-10">
                 <div class="blog-img">
-                  <img src="/img/blog/img7.jpg" alt=""/>
+                  <img src="/img/<?=$ar[$post->id]?>" alt=""/>
                 </div>
 
               </div>

@@ -12,7 +12,9 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'podium'],
 	'modules' => [
-        'podium' => 'bizley\podium\Podium',
+        'podium' => [
+            'class' => 'bizley\podium\Podium',
+        ],
     ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -43,15 +45,7 @@ $config = [
                 ],
             ],
         ],
-        [
-            'class' => 'yii\rbac\DbManager',
-            'db' => $db,
-            'itemTable' => '{{%podium_auth_item}}',
-            'itemChildTable' => '{{%podium_auth_item_child}}',
-            'assignmentTable' => '{{%podium_auth_assignment}}',
-            'ruleTable' => '{{%podium_auth_rule}}',
-            'cache' => $cache
-        ],
+        
         'db' => $db,
 		'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
