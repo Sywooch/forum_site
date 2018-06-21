@@ -111,7 +111,7 @@ AppAsset::register($this);
         <div class="container">
             <div class="row" style="color:#fff;">
               <div class="col-lg-3 col-sm-3">
-                <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
+                <div class="page-footer wow fadeInUp" >
                   <h1>
                     Клевер
                   </h1>

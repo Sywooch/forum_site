@@ -14,7 +14,4 @@ function viewError($model)
       }
 }
 
-function returnFlash($success, $error){
-    
-}
 ?>

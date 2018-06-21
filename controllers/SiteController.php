@@ -9,9 +9,11 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\Question;
-use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Contact;
+// customize
+use bizley\podium\models\forms\LoginForm;
+
 
 class SiteController extends Controller
 {
@@ -89,18 +91,20 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect('/site/index');   
         }
+
+        // if ($this->module->userComponent !== true) {
+        //     $this->info(Yii::t('podium/flash', 'Please use application Login form to sign in.'));
+        //     returnIndex();
+        // }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect('/site/index');
+            return $this->redirect('/site/index');   
         }
 
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        return $this->render('login', ['model' => $model]);
     }
 
     /**

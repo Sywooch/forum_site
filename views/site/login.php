@@ -31,26 +31,32 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <!--container start-->
     <div class="login-bg">
-        <div class="container">
+        <div class="container" style="height: 500px;">
 
-            <div class="form-wrapper">
-            <form class="form-signin wow fadeInUp" action="index.html">
-            <h2 class="form-signin-heading">Войти сейчас</h2>
-            <div class="login-wrap">
-                <input type="text" class="form-control" placeholder="Логин" autofocus>
-                <input type="password" class="form-control" placeholder="Пароль">
-                <label class="checkbox">
-                    <input type="checkbox" value="remember-me"> Запомнить меня
-                    <span class="pull-right">
-                        <a data-toggle="modal" href="#myModal"> Забыли пароль?</a>
-
-                    </span>
-                </label>
-                <button class="btn btn-lg btn-login btn-block" type="submit">Войти</button>
+            <div align="center" style="width:25%;margin-top:70px;
+                margin-left:auto;margin-right:auto;">
+            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                <div class="form-group">
+                    <?= $form->field($model, 'username')->textInput(['placeholder' => Yii::t('podium/view', 'Username or E-mail'), 'autofocus' => true])->label(false) ?>
+                </div>
+                <div class="form-group">
+                    <?= $form->field($model, 'password')->passwordInput(['placeholder' => Yii::t('podium/view', 'Password')])->label(false) ?>
+                </div>
+                <div class="form-group text-center">
+                    <?= $form->field($model, 'rememberMe')->checkBox()->label(null, ['data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => Yii::t('podium/view', "Don't use this option on public computers!")]) ?>
+                </div>
+                <div class="form-group">
+                    <?= Html::submitButton('<span class="glyphicon glyphicon-ok-sign"></span> ' . Yii::t('podium/view', 'Sign in'), ['class' => 'btn btn-block btn-primary', 'name' => 'login-button']) ?>
+                </div>
+                <div class="form-group">
+                    <a href="<?= Url::to(['account/reset']) ?>" class="pull-right"><?= Yii::t('podium/view', 'Reset Password') ?></a>
+                    <a href="<?= Url::to(['account/reactivate']) ?>" class="pull-left"><?= Yii::t('podium/view', 'Resend activation link') ?></a>
+                </div>
+            <?php ActiveForm::end(); ?>
              
                 <div class="registration">
                     Вы не зарегистрированы?
-                    <a class="" href="/site/registration">
+                    <a class="" href="/podium/register">
                         Создать аккаунт
                     </a>
                 </div>
