@@ -33,6 +33,7 @@ class Comment extends \yii\db\ActiveRecord
             [['name', 'post_id', 'text', 'email'], 'required'],
             [['post_id'], 'integer'],
             [['text'], 'string'],
+            [['email'], 'email'],
             [['date'], 'safe'],
             [['date'], 'date', 'format' => 'php:Y-m-d'],
             [['date'], 'default', 'value' => date('Y-m-d')],

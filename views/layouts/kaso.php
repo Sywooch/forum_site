@@ -64,6 +64,10 @@ AppAsset::register($this);
 				</li>
 
         <li>
+				  <a href="<?=Url::to('/#qEditor')?>">Предложить Вопрос</a>
+        </li>
+        
+        <li>
 				  <a href="<?=Url::to('/blog/user-view')?>">Новости</a>
 				</li>
 
@@ -98,21 +102,42 @@ AppAsset::register($this);
   <footer class="footer-small">
         <div class="container">
             <div class="row" style="color:#fff;">
-                
-                    <ul class="social-link-footer list-unstyled">
-                        <li class="wow flipInX pull-right" data-wow-duration="2s" data-wow-delay=".1s"><a href="#"><i class="fa fa-vk"></i></a></li>
-                    </ul>
-                    
-                    <a style="color: #fff;" href="/#about">Об Игре</a></li>
-                    <a style="margin-left:7%;color: #fff;"  href="<?=Url::to('/site/contact')?>">    Поддержка</a>
-                    <a style="margin-left:7%;color: #fff;" href="<?=Url::to('/podium/home')?>">   Форум</a>
-                    <a style="margin-left:7%;color: #fff;" href="#">   Политика Конфиденциальности</a>
-                    <a style="margin-left:7%;color: #fff;" href="#">   Условия пользования</a>
-                    </ul>
+              <div class="col-lg-3 col-sm-3">
+                <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
+                  <h1>
+                    Клевер
+                  </h1>
+                  <ul class="page-footer-list">
+                    <li>
+                      <i class="fa fa-angle-right"></i>
+                      <a href="/#about">Об Игре</a></li>
+                    </li>
+                    <li>
+                      <i class="fa fa-angle-right"></i>
+                      <a href="<?=Url::to('/site/contact')?>">Поддержка</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-angle-right"></i>
+                      <a href="<?=Url::to('/podium/home')?>">Форум</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-angle-right"></i>
+                      <a href="#"> Политика Конфиденциальности</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-angle-right"></i>
+                      <a href="#"> Условия пользования</a>
+                    </li>
+                  </ul>
                 </div>
+              </div>
+              <ul class="social-link-footer list-unstyled">
+                  <li class="wow flipInX pull-right" data-wow-duration="2s" data-wow-delay=".1s"><a href="https://vk.com/clever"><i class="fa fa-vk"></i></a></li>
+              </ul>                      
             </div>
         </div>
-    </footer>
+    </div>
+  </footer>
     <!--small footer end-->
           
 <?php $this->endBody() ?>

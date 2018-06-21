@@ -193,7 +193,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   <?= $form->field($model, 'text')->textarea(['rows' => '6'])?>
                   <div class="form-group">
                     <?= Html::submitButton('Прокомментировать', ['class' => 'btn btn-info ']) ?>
-                </div>
+                  </div>
                   <?php ActiveForm::end();?>
                   
                 </div>

@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use app\models\Question;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Contact;
@@ -62,7 +63,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new Question();
+        $model->date = date('Y-m-d');
+        $model->accepted = 0; 
+        viewError($model);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success');
+            return $this->refresh();       
+        }                
+        else{ 
+            Yii::$app->session->setFlash('error');
+        }
+        
+        return $this->render('index',[
+            'model' => $model]);
     }
 
     /**
