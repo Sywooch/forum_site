@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use bizley\podium\Podium;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -67,13 +68,14 @@ class SiteController extends Controller
         $model->date = date('Y-m-d');
         $model->accepted = 0; 
         viewError($model);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success');
-            return $this->refresh();       
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->save()){
+                Yii::$app->session->setFlash('success');
+                return $this->refresh();}       
+            else{ 
+                Yii::$app->session->setFlash('error');
+            }
         }                
-        else{ 
-            Yii::$app->session->setFlash('error');
-        }
         
         return $this->render('index',[
             'model' => $model]);
@@ -92,7 +94,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect('/site/index');
         }
 
         $model->password = '';
@@ -107,10 +109,9 @@ class SiteController extends Controller
      * @return Response
      */
     public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
+    {        
+        Podium::getInstance()->user->logout();
+        return $this->redirect('/site/index');
     }
 
     /**

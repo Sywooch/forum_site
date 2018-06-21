@@ -44,7 +44,7 @@ AppAsset::register($this);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html"><?=Yii::$app->name?><span></span></a>
+              <a class="navbar-brand" href="/site/index"><?=Yii::$app->name?><span></span></a>
           </div>
           <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -84,10 +84,18 @@ AppAsset::register($this);
         </li>
         
         <li>
-          <a class="btn btn-warning" style="color: #fff;background: #48cfad;" 
-          href="<?=Url::to('/site/login')?>">
-            Вход
-          </a>
+          <?php if(Yii::$app->user->isGuest):?>  
+            <a class="btn btn-warning" style="color: #fff;background: #48cfad;" 
+              href="<?=Url::to('/site/login')?>">
+                Вход
+            </a>
+          <?php else:?>
+            <a class="btn btn-warning" data-method="post"
+             style="color: #fff;background: #48cfad;" 
+              href="<?=Url::to('/site/logout')?>">
+                Выход
+            </a>
+          <?php endif;?>  
         </li>
 				
               </ul>
