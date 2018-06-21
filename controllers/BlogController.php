@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\Comment;
 use app\models\Blog;
 use app\models\SearchBlog;
 use yii\web\Controller;
@@ -27,6 +28,40 @@ class BlogController extends Controller
                 ],
             ],
         ];
+    }
+
+    /**
+     * Lists all Blog models.
+     * @return mixed
+     */
+    public function actionUserView()
+    {
+        $posts = Blog::find()->all();
+    
+        return $this->render('user-view', [
+            'posts' => $posts,
+        ]);
+    }
+
+    /**
+     * Lists Blog models.
+     * @return mixed
+     */
+    public function actionPost($id = false)
+    {
+        $post = $this->findModel($id);
+        $comments = Comment::find(['post_id'=> $id])->all();
+        // new Comment
+        $model = new Comment();
+        $model->post_id = $id;
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->refresh();  
+        }
+        return $this->render('post', [
+            'post' => $post,
+            'comments' => $comments,
+            'model' => $model
+        ]);
     }
 
     /**

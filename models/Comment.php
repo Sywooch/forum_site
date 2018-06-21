@@ -5,22 +5,23 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "blog".
+ * This is the model class for table "comment".
  *
  * @property int $id
+ * @property string $name
+ * @property int $post_id
  * @property string $text
- * @property string $title
  * @property string $date
- * @property string $user_id
+ * @property string $email
  */
-class Blog extends \yii\db\ActiveRecord
+class Comment extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'blog';
+        return 'comment';
     }
 
     /**
@@ -29,14 +30,13 @@ class Blog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            
-            [['text', 'title'], 'required'],
+            [['name', 'post_id', 'text', 'email'], 'required'],
+            [['post_id'], 'integer'],
             [['text'], 'string'],
-            [['title'], 'string', 'max' => 100],
             [['date'], 'safe'],
-            [['user_id'], 'integer'],
             [['date'], 'date', 'format' => 'php:Y-m-d'],
             [['date'], 'default', 'value' => date('Y-m-d')],
+            [['name', 'email'], 'string', 'max' => 50],
         ];
     }
 
@@ -47,9 +47,11 @@ class Blog extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'text' => 'Текст',
-            'title' => 'Заголовок',
-            
+            'name' => 'Имя',
+            'post_id' => 'Post ID',
+            'text' => 'Комментарий',
+            'date' => 'Date',
+            'email' => 'E-mail',
         ];
     }
 }

@@ -43,6 +43,15 @@ $config = [
                 ],
             ],
         ],
+        [
+            'class' => 'yii\rbac\DbManager',
+            'db' => $db,
+            'itemTable' => '{{%podium_auth_item}}',
+            'itemChildTable' => '{{%podium_auth_item_child}}',
+            'assignmentTable' => '{{%podium_auth_assignment}}',
+            'ruleTable' => '{{%podium_auth_rule}}',
+            'cache' => $cache
+        ],
         'db' => $db,
 		'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

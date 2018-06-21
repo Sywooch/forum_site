@@ -4,15 +4,25 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
 
+// импорт классов
+// методы для генерации html-разметки
 use yii\helpers\Html;
+// методы для генерации url
 use yii\helpers\Url;
+
+// методы для генерации формы с подключение фрейморка bootstrap 
 use yii\bootstrap\ActiveForm;
+// методы для генерации и использования капчи
+// генериться уникальный текст - и конвертируется в картинку
 use yii\captcha\Captcha;
 
 $this->title = 'Отзывы';
 // echo sizeof($contacts);
 ?>
+<!-- ВЕРСТКА -->
 <!--breadcrumbs start-->
+<!--"хлебные крошки"-->
+
 <div class="breadcrumbs">
       <div class="container">
         <div class="row">
@@ -38,6 +48,8 @@ $this->title = 'Отзывы';
       </div>
     </div>
     <!--breadcrumbs end-->
+
+
 <div class="site-contact">
 
     <div class="media container">
@@ -109,8 +121,6 @@ $this->title = 'Отзывы';
 
             <?= $form->field($model, 'name')->textInput(['autofocus' => true, 'class' => 'form-control']) ?>
             <?= $form->field($model, 'email') ?>
-
-            <?= $form->field($model, 'subject') ?>
 
             <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 

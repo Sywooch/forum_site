@@ -10,14 +10,15 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property int $email
- * @property string $subject
  * @property string $body
  * @property string $date
+ * МОдель контакт, связана с БД
  */
 class Contact extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
+     * имя таблицы
      */
     public static function tableName()
     {
@@ -26,17 +27,17 @@ class Contact extends \yii\db\ActiveRecord
 
     /**
      * {@inheritdoc}
+     * ВАлидация
      */
     public function rules()
     {
         return [
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'email', 'body'], 'required'],
             [['body'], 'string'],
             [['date'], 'safe'],
             [['date'], 'date', 'format' => 'php:Y-m-d'],
             [['date'], 'default', 'value' => date('Y-m-d')],
             [['name', 'email'], 'string', 'max' => 50],
-            [['subject'], 'string', 'max' => 100],
         ];
     }
 
@@ -49,7 +50,6 @@ class Contact extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Имя',
             'email' => 'E-mail',
-            'subject' => 'Тема',
             'body' => 'Отзыв',
         ];
     }

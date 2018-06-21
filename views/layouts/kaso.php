@@ -52,17 +52,19 @@ AppAsset::register($this);
 				<li>
 				  <a href="<?=Url::to('/site/index')?>">Главная</a>
 				</li>
-				
+        
+        <!-- ЯКОРь 1-->
 				<li>
 				  <a href="/#about">Об Игре</a>
 				</li>
+
 
         <li>
 				  <a href="/#download">Скачать</a>
 				</li>
 
         <li>
-				  <a href="<?=Url::to('/blog/index')?>">Новости</a>
+				  <a href="<?=Url::to('/blog/user-view')?>">Новости</a>
 				</li>
 
 				<li>
