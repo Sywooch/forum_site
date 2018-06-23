@@ -22,29 +22,29 @@ $ar = [
 
 <!--breadcrumbs start-->
 <div class="breadcrumbs">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-sm-4">
-            <h1>
-              Новости
-            </h1>
-          </div>
-          <div class="col-lg-8 col-sm-8">
-            <ol class="breadcrumb pull-right">
-              <li>
-                <a href="#">
-                  Главная
-                </a>
-              </li>
-              <li class="active">
-                Новости
-              </li>
-            </ol>
-          </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-4">
+        <h1>
+          Новости
+        </h1>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <ol class="breadcrumb pull-right">
+          <li>
+            <a href="#">
+              Главная
+            </a>
+          </li>
+          <li class="active">
+            Новости
+          </li>
+        </ol>
       </div>
     </div>
-    <!--breadcrumbs end-->
+  </div>
+</div>
+<!--breadcrumbs end-->
 
     <!--container start-->
     <div class="container">
@@ -57,40 +57,45 @@ $ar = [
             <div class="row">
               <div class="col-lg-2 col-sm-2">
                 <div class="date-wrap">
-                <span>
-              <?php 
-                setlocale(LC_ALL, 'ru_RU.UTF-8');
-                $Month_r = array(
-                    "01" => "января",
-                    "02" => "февраля",
-                    "03" => "марта",
-                    "04" => "апреля",
-                    "05" => "мая",
-                    "06" => "июня",
-                    "07" => "июля",
-                    "08" => "августа",
-                    "09" => "сентября",
-                    "10" => "октября",
-                    "11" => "ноября",
-                    "12" => "декабря");
-                $date = strtotime($post->date);
-                $begin_month = date('m', strtotime($post->date)); // месяц на eng
-                $rus_month_begin = $Month_r[$begin_month];
-              ?>
-              <?=$url = date('d ', strtotime($post->date)) . $rus_month_begin
-                    . date(' Y');?>
-            </span>  
-                <span class="date">
+                  <span>
+                    <?php 
+                      setlocale(LC_ALL, 'ru_RU.UTF-8');
+                      $Month_r = array(
+                          "01" => "января",
+                          "02" => "февраля",
+                          "03" => "марта",
+                          "04" => "апреля",
+                          "05" => "мая",
+                          "06" => "июня",
+                          "07" => "июля",
+                          "08" => "августа",
+                          "09" => "сентября",
+                          "10" => "октября",
+                          "11" => "ноября",
+                          "12" => "декабря");
+                      $date = strtotime($post->date);
+                      $begin_month = date('m', strtotime($post->date)); // месяц на eng
+                      $rus_month_begin = $Month_r[$begin_month];
+                    ?>
+                    <?=$url = date('d ', strtotime($post->date)) . $rus_month_begin
+                          . date(' Y');?>
+                  </span>  
+                  <span class="date">
                     <?=date('d ', $date)?>
                   </span>
                   <span class="month">
                     <?=$rus_month_begin = $Month_r[$begin_month];?> 
                   </span>
                 </div>
-
               </div>
               <div class="col-lg-10 col-sm-10">
                 <div class="blog-img">
+                  <?php if(Yii::$app->user->identity->status == 10):?>
+                    <a class="btn btn-warning" href="<?=Url::to('/blog/index')?>"
+                      style="color: #fff;background: #48cfad;margin-bottom: 10px;">
+                      Просмотреть новости
+                    </a>
+                  <?php endif;?>
                   <img src="/img/<?=$ar[$post->id]?>" alt=""/>
                 </div>
 

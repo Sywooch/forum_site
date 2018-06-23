@@ -25,10 +25,7 @@ use mihaildev\elfinder\InputFile;
     ]); ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-        <a href="<?=Url::to('/blog/index')?>" class= 'btn btn-info'>
-            Back
-        </a>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
