@@ -12,11 +12,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    'modules' => [
-        'podium' => [
-            'class' => 'bizley\podium\Podium',
-        ],
-    ],
+    
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -29,6 +25,20 @@ $config = [
                 ],
             ],
         ],
+        'user' => [
+            'identityClass' => 'bizley\podium\models\User',
+            
+            'enableAutoLogin' => true,
+        ],
+        'authManager'  => [
+            'class' => 'yii\rbac\DbManager',
+            'db' => $db,
+            'itemTable' => '{{%podium_auth_item}}',
+            'itemChildTable' => '{{%podium_auth_item_child}}',
+            'assignmentTable' => '{{%podium_auth_assignment}}',
+            'ruleTable' => '{{%podium_auth_rule}}',
+            'cache' => $cache
+        ], 
         'db' => $db,
 		'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -43,7 +53,20 @@ $config = [
             ],
         ],
     ],
-    
+    'modules' => [
+        'rbac' => [
+            'class' => 'yii2mod\rbac\Module',
+        ],
+        
+        'podium' => [
+            'class' => 'bizley\podium\Podium',
+            // 'userComponent' => 'user',
+            'rbacComponent' => 'authManager',
+            'adminId' => 1,
+            'userPasswordField' => 'password'
+        ],
+    ],
+
     'params' => $params,
     /*
     'controllerMap' => [

@@ -11,11 +11,6 @@ $config = [
     'name' => 'Клевер - Игра',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'podium'],
-	'modules' => [
-        'podium' => [
-            'class' => 'bizley\podium\Podium',
-        ],
-    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -33,6 +28,15 @@ $config = [
             'identityClass' => 'bizley\podium\models\User',
             'enableAutoLogin' => true,
         ],
+        'authManager'  => [
+            'class' => 'yii\rbac\DbManager',
+            'db' => $db,
+            'itemTable' => '{{%podium_auth_item}}',
+            'itemChildTable' => '{{%podium_auth_item_child}}',
+            'assignmentTable' => '{{%podium_auth_assignment}}',
+            'ruleTable' => '{{%podium_auth_rule}}',
+            'cache' => $cache
+        ],  
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -68,6 +72,20 @@ $config = [
             ],
         ],
         
+    ],
+
+    'modules' => [
+        'rbac' => [
+            'class' => 'yii2mod\rbac\Module',
+        ],
+        
+        'podium' => [
+            'class' => 'bizley\podium\Podium',
+            // 'userComponent' => 'user',
+            'rbacComponent' => 'authManager',
+            'adminId' => 1,
+            'userPasswordField' => 'password'
+        ],
     ],
     'params' => $params,
 ];

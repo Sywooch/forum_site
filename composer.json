@@ -21,7 +21,9 @@
         "bizley/podium": "^0.7.0",
         "aneeshikmat/yii2-time-down-counter": "*@dev",
         "mihaildev/yii2-ckeditor": "*",
-        "mihaildev/yii2-elfinder": "*"
+        "mihaildev/yii2-elfinder": "*",
+        "yii2mod/yii2-rbac": "*",
+        "amnah/yii2-user": "^5.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
