@@ -6,7 +6,7 @@ use aneeshikmat\yii2\Yii2TimerCountDown\Yii2TimerCountDown;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
-$this->title = 'My Yii Application';
+$this->title = Yii::$app->name ;
 ?>
 
   
@@ -319,40 +319,3 @@ $this->title = 'My Yii Application';
 			/></a>
 </div>
     
-<div class="container col-lg-7 pull-left" >
-  <div class="post-comment">
-  <div class="container pull-left col-lg-7" align="center">
-    <?php if (Yii::$app->session->getFlash('success')): ?>
-        <div class="alert alert-success alert-dismissible flash" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                      aria-hidden="true">&times;</span></button>
-          Вопрос задан.
-        </div>
-    <?php elseif(Yii::$app->session->getFlash('error')):?>
-      <div class="alert alert-danger alert-dismissible flash" role="alert" >
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                    aria-hidden="true">&times;</span></button>
-        Произошла ошибка! Попробуйте снова $).
-        
-      </div>
-    <?php endif; ?>
-  </div>
-    <h3 class="skills">
-      <a name="qEditor">Редактор вопросов:</a>
-    </h3>
-    <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-
-<?= $form->field($model, 'question')->textInput(['autofocus' => true, 'class' => 'form-control']) ?>
-<?= $form->field($model, 'first') ?>
-
-<?= $form->field($model, 'second')->textInput() ?>
-
-<?= $form->field($model, 'third')->textInput() ?>
-
-<div class="form-group">
-    <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-</div>
-
-<?php ActiveForm::end(); ?>
-  </div>
-</div>

@@ -133,3 +133,7 @@ a.desc:after {
     padding: 0;
     text-decoration-color:#fff;
 }
+
+.footer_margin_left{
+    margin-left: 9px;
+}

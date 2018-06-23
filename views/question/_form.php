@@ -22,10 +22,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date')->textInput() ?>
 
-    <?= $form->field($model, 'accepted')->textInput() ?>
+    <?php 
+        $itemsStatus = [
+            '0' => 'Нет',
+            '1' => 'Да',
+        ];
+        $paramsStatus = [
+            'prompt' => 'Выберите статус...'
+        ];
+        echo $form->field($model, 'accepted')->dropDownList($itemsStatus, $paramsStatus);; ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

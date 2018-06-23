@@ -21,7 +21,7 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode(Yii::$app->name) ?></title>
+    <title><?= Html::encode($this->title) ?></title>
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
@@ -64,7 +64,7 @@ AppAsset::register($this);
 				</li>
 
         <li>
-				  <a href="<?=Url::to('/#qEditor')?>">Предложить Вопрос</a>
+				  <a href="<?=Url::to('/site/question')?>">Предложить Вопрос</a>
         </li>
         
         <li>
@@ -110,38 +110,82 @@ AppAsset::register($this);
   <footer class="footer-small">
         <div class="container">
             <div class="row" style="color:#fff;">
+          
+            <div class="col-lg-3 col-sm-3">
+                <div class="page-footer wow fadeInUp" >
+                  <h3 align="center" style="margin-top:23px;">
+                    Клевер - Игра
+                  </h3>          
+                </div>
+              </div>
+              
               <div class="col-lg-3 col-sm-3">
                 <div class="page-footer wow fadeInUp" >
-                  <h1>
-                    Клевер
-                  </h1>
+                  <br>
+                  <h5 class="footer_margin_left"> <strong>Для начала</strong></h5>
                   <ul class="page-footer-list">
-                    <li>
-                      <i class="fa fa-angle-right"></i>
-                      <a href="/#about">Об Игре</a></li>
+                  <li>
+                    
+                      <a href="/site/index">Главная</a></li>
                     </li>
                     <li>
-                      <i class="fa fa-angle-right"></i>
-                      <a href="<?=Url::to('/site/contact')?>">Поддержка</a>
+                     
+                      <a href="/podium/home/register">Регистрация</a></li>
                     </li>
                     <li>
-                      <i class="fa fa-angle-right"></i>
-                      <a href="<?=Url::to('/podium/home')?>">Форум</a>
+                      
+                      <a href="/#download">Скачать</a></li>
                     </li>
                     <li>
-                      <i class="fa fa-angle-right"></i>
-                      <a href="https://vk.com/@clever-privacy"> Политика Конфиденциальности</a>
-                    </li>
-                    <li>
-                      <i class="fa fa-angle-right"></i>
-                      <a href="/site/about"> FAQ</a>
+                     
+                      <a href="<?=Url::to('/site/question')?>">Предложить Вопрос</a>
                     </li>
                   </ul>
                 </div>
               </div>
-              <ul class="social-link-footer list-unstyled">
+
+               <div class="col-lg-3 col-sm-3">
+                <div class="page-footer wow fadeInUp" >
+                  <br>
+                  <h5 class="footer_margin_left"> <strong>О Нас</strong></h5>
+                  <ul class="page-footer-list">
+                  <li>
+                      
+                      <a href="/blog/user-view">Новости</a>
+                    </li>
+                    <li>
+                  
+                      <a href="<?=Url::to('/site/contact')?>">Отзывы</a>
+                    </li>
+                  </ul>
+                  <ul class="social-link-footer list-unstyled" style="margin-right: 122px;">
                   <li class="wow flipInX pull-right" data-wow-duration="2s" data-wow-delay=".1s"><a href="https://vk.com/clever"><i class="fa fa-vk"></i></a></li>
-              </ul>                      
+              </ul>  
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-sm-3">
+                <div class="page-footer wow fadeInUp" >
+                  <br>
+                  <h5 class="footer_margin_left"> <strong>Поддержка</strong></h5>
+                  <ul class="page-footer-list">
+                  <li>
+                      
+                      <a href="/site/about">FAQ</a>
+                    </li>
+                    <li>
+                     
+                      <a href="https://vk.com/@clever-privacy">Политика Конфиденциальности</a>
+                    </li>
+                    <li>
+                     
+                      <a href=" <?=Url::to('/podium/home')?>"> Форум</a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+                                  
             </div>
         </div>
     </div>

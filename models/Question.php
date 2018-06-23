@@ -53,8 +53,8 @@ class Question extends \yii\db\ActiveRecord
             'first' => 'Вариант 1',
             'second' => 'Вариант 2',
             'third' => 'Вариант 3',
-            'date' => 'Date',
-            'accepted' => 'Accepted',
+            'date' => 'Дата',
+            'accepted' => 'Принят/Нет',
         ];
     }
 }

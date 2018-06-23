@@ -66,6 +66,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        return $this->render('index');
+    }
+
+    public function actionQuestion(){
         $model = new Question();
         $model->date = date('Y-m-d');
         $model->accepted = 0; 
@@ -79,7 +83,7 @@ class SiteController extends Controller
             }
         }                
         
-        return $this->render('index',[
+        return $this->render('question',[
             'model' => $model]);
     }
 
