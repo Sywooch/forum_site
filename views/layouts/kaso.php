@@ -130,11 +130,11 @@ AppAsset::register($this);
                     </li>
                     <li>
                       <i class="fa fa-angle-right"></i>
-                      <a href="#"> Политика Конфиденциальности</a>
+                      <a href="https://vk.com/@clever-privacy"> Политика Конфиденциальности</a>
                     </li>
                     <li>
                       <i class="fa fa-angle-right"></i>
-                      <a href="#"> Условия пользования</a>
+                      <a href="/site/about"> FAQ</a>
                     </li>
                   </ul>
                 </div>
