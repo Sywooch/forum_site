@@ -80,7 +80,7 @@ AppAsset::register($this);
 				</li>
 			  
 				<li>
-				  <a href="<?=Url::to('/site/about')?>">FAQ</a>
+				  <a href="<?=Url::to('/site/about')?>">F.A.Q.</a>
         </li>
         
         <li>

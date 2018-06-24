@@ -13,7 +13,7 @@ use Yii;
  * @property string $created_at
  * @property string $updated_at
  */
-class FAQ extends \yii\db\ActiveRecord
+class Faq extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -42,10 +42,10 @@ class FAQ extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'Номер',
             'title' => 'Заголовок',
             'content' => 'Текст',
-            'created_at' => 'Created At',
+            'created_at' => 'Создан',
             'updated_at' => 'Updated At',
         ];
     }

@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use app\models\Question;
 use app\models\ContactForm;
 use app\models\Contact;
+use app\models\Faq;
 // customize
 use bizley\podium\models\forms\LoginForm;
 
@@ -145,13 +146,36 @@ class SiteController extends Controller
     }
 
     /**
+     * Delete chosen contact .
+     *
+     * @return Response|string
+     */
+    public function actionDeleteContact($id)
+    {
+        if(Yii::$app->user->identity->status == 10){
+            // Поиск
+            $model = Contact::findOne(['id'=>$id]);
+            if($model != null && $model->delete()){
+                Yii::$app->session->setFlash('success');
+            } else {
+                Yii::$app->session->setFlash('error');
+            }
+            return $this->redirect('/site/contact');       
+        }
+        return $this->redirect('/site/error');
+    }
+
+    /**
      * Displays about page.
      *
      * @return string
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $faqs =  Faq::find()->all(); 
+        return $this->render('about', [
+            'faqs' => $faqs,
+        ]);
     }
 
     /**

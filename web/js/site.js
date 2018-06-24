@@ -56,3 +56,24 @@ jQuery(document).ready(function() {
 
   new WOW().init();
 
+	// Ajax jQuery + php
+	$(document).ready(function (e) {
+		$("#uploadForm").on('submit',(function(e) {
+			e.preventDefault();  //If this method is called, the default action of the event will not be 							triggered.
+			$.ajax({
+						url: "/blog/create/",
+				type: "POST",
+				data:  new FormData(this),
+				contentType: false,     //when we send json file we write contentType: 'application/json'
+						cache: false,
+				processData:false,
+				success: function(data)
+					{
+				$("#targetLayer").html(data);
+					},
+					error: function() 
+					{
+					} 	        
+			 });
+		}));
+	});

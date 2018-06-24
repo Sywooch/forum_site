@@ -46,7 +46,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--breadcrumbs end-->
 <div class="blog-view container">
 
-
+    <?php if (Yii::$app->session->getFlash('successImg')): ?>
+        <div class="alert alert-success alert-dismissible flash border_radius" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            Изображение загружено.
+        </div>
+    <?php endif; ?>
     <p>
         <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [

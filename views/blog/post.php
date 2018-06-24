@@ -76,20 +76,26 @@ $this->params['breadcrumbs'][] = $this->title;
                 $begin_month = date('m', strtotime($post->date)); // месяц на eng
                 $rus_month_begin = $Month_r[$begin_month];
               ?>
-              <?=$url = date('d ', strtotime($post->date)) . $rus_month_begin
+              <?php $url = date('d ', strtotime($post->date)) . $rus_month_begin
                     . date(' Y');?>
             </span>  
                 <span class="date">
                     <?=date('d ', $date)?>
                   </span>
                   <span class="month">
-                    <?=$rus_month_begin = $Month_r[$begin_month];?> 
+                    <?=$rus_month_begin = $Month_r[$begin_month] . date(' Y');?> 
                   </span>
                 </div>
 
               </div>
               <div class="col-lg-10 col-sm-10">
                 <div class="blog-img">
+                  <?php if(Yii::$app->user->identity->status == 10):?>
+                      <a class="btn btn-warning" href="<?=Url::to('/blog/index')?>"
+                        style="color: #fff;background: #48cfad;margin-bottom: 10px;">
+                        Просмотреть новости
+                      </a>
+                  <?php endif;?>
                   <img src="/img/blog/img7.jpg" alt=""/>
                 </div>
 

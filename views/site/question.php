@@ -56,14 +56,14 @@ $this->title = 'Редактор Вопросов';
                       aria-hidden="true">&times;</span></button>
           Вопрос задан.
         </div>
-        <?php elseif(Yii::$app->session->getFlash('error')):?>
+      <?php elseif(Yii::$app->session->getFlash('error')):?>
         <div class="alert alert-danger alert-dismissible flash" role="alert" >
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
             Произошла ошибка! Попробуйте снова.
             
         </div>
-        <?php endif; ?>
+      <?php endif; ?>
     
         <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 

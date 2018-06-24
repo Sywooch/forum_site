@@ -77,14 +77,16 @@ $ar = [
                       $begin_month = date('m', strtotime($post->date)); // месяц на eng
                       $rus_month_begin = $Month_r[$begin_month];
                     ?>
-                    <?=$url = date('d ', strtotime($post->date)) . $rus_month_begin
-                          . date(' Y');?>
+                    <?php
+                      $url = date('d ', strtotime($post->date)) . $rus_month_begin
+                        . date(' Y');
+                      ?>
                   </span>  
                   <span class="date">
                     <?=date('d ', $date)?>
                   </span>
                   <span class="month">
-                    <?=$rus_month_begin = $Month_r[$begin_month];?> 
+                    <?=$rus_month_begin = $Month_r[$begin_month] . date(' Y');?> 
                   </span>
                 </div>
               </div>
@@ -104,7 +106,7 @@ $ar = [
             <div class="row">
               <div class="col-lg-2 col-sm-2 text-right">
                 <div class="author">
-                  By
+                  Автор
                   <a href="#">
                       <?php
 
@@ -118,7 +120,7 @@ $ar = [
                 <div class="st-view">
                   <ul class="list-unstyled">
                     <li>
-                      <a href="javascript:;">
+                      <!-- <a href="javascript:;"> -->
                         <?php 
                             /*Счётчик просмотров новостей*/ 
                             $f=fopen("stat.dat". $post->id,"a+");
@@ -133,7 +135,7 @@ $ar = [
                             
                             echo "Количество просмотров: $count"; 
                         ?>
-                      </a>
+                      <!-- </a> -->
                     </li>
                     
                     <li>
@@ -147,20 +149,22 @@ $ar = [
               <div class="col-lg-10 col-sm-10">
                 <h1>
                   <a href="blog-detail.html">
-                    <?php echo $post->title?>
+                    <?php 
+                      echo "<p align='center'>" .
+                      Html::a("{$post->title}",
+                          ['/blog/post', 'id' => $post->id, ],
+                          [
+                            'class' => '',
+                            'data' => ['method' => 'post'],
+                          ])
+                      . "</p>";
+                    ;?>
                   </a>
                 </h1>
                 <p>
-                <?php echo $post->text?>
+                  <?php echo $post->text?>
                 </p>
-                <?php
-                  echo "<p align='center'>" .
-                  Html::a('Продолжить чтение',
-                      ['/blog/post', 'id' => $post->id, ],
-                      ['class' => 'btn btn-success',
-                          'data' => ['method' => 'post'],])
-                  . "</p>";
-                ?>
+                
               </div>
             </div>
           </div>
@@ -249,32 +253,43 @@ $ar = [
                         <h5 class="media-heading">
                             <a href="javascript:;">
                             <span>
-              <?php 
-                setlocale(LC_ALL, 'ru_RU.UTF-8');
-                $Month_r = array(
-                    "01" => "января",
-                    "02" => "февраля",
-                    "03" => "марта",
-                    "04" => "апреля",
-                    "05" => "мая",
-                    "06" => "июня",
-                    "07" => "июля",
-                    "08" => "августа",
-                    "09" => "сентября",
-                    "10" => "октября",
-                    "11" => "ноября",
-                    "12" => "декабря");
-                $date = strtotime($post->date);
-                $begin_month = date('m', strtotime($post->date)); // месяц на eng
-                $rus_month_begin = $Month_r[$begin_month];
-              ?>
-              <?=$url = date('d ', strtotime($post->date)) . $rus_month_begin
-                    . date(' Y');?>
-            </span>
+                              <?php 
+                                setlocale(LC_ALL, 'ru_RU.UTF-8');
+                                $Month_r = array(
+                                    "01" => "января",
+                                    "02" => "февраля",
+                                    "03" => "марта",
+                                    "04" => "апреля",
+                                    "05" => "мая",
+                                    "06" => "июня",
+                                    "07" => "июля",
+                                    "08" => "августа",
+                                    "09" => "сентября",
+                                    "10" => "октября",
+                                    "11" => "ноября",
+                                    "12" => "декабря");
+                                $date = strtotime($post->date);
+                                $begin_month = date('m', strtotime($post->date)); // месяц на eng
+                                $rus_month_begin = $Month_r[$begin_month];
+                              ?>
+                          
+                              <?=$url = date('d ', strtotime($post->date)) . $rus_month_begin
+                                    . date(' Y');?>
+                            </span>
                             </a>
                         </h5>
                         <p>
                             <?=substr($post->text, 0, 450) . "..."?>
+                            <br/>
+                            <?php
+                                  echo Html::a('Читать',
+                                      ['/blog/post', 'id' => $post->id, ],
+                                      [
+                                        'class' => '',
+                                        'data' => ['method' => 'post'],
+                                      ])
+                                  . "</p>";
+                                ?>
                         </p>
                         </div>
                     </div>

@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\FAQ;
-use app\models\SearchFAQ;
+use app\models\Faq;
+use app\models\SearchFaq;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FAQController implements the CRUD actions for FAQ model.
+ * FaqController implements the CRUD actions for Faq model.
  */
-class FAQController extends Controller
+class FaqController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,15 +30,12 @@ class FAQController extends Controller
     }
 
     /**
-     * Lists all FAQ models.
+     * Lists all Faq models.
      * @return mixed
      */
     public function actionIndex()
     {
-		if(!(Yii::$app->user->identity->status == 10) || Yii::$app->user->isGuest){
-			return $this->redirect('/site/about');
-		}
-        $searchModel = new SearchFAQ();
+        $searchModel = new SearchFaq();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -48,7 +45,7 @@ class FAQController extends Controller
     }
 
     /**
-     * Displays a single FAQ model.
+     * Displays a single Faq model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,13 +58,13 @@ class FAQController extends Controller
     }
 
     /**
-     * Creates a new FAQ model.
+     * Creates a new Faq model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new FAQ();
+        $model = new Faq();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -79,7 +76,7 @@ class FAQController extends Controller
     }
 
     /**
-     * Updates an existing FAQ model.
+     * Updates an existing Faq model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -99,7 +96,7 @@ class FAQController extends Controller
     }
 
     /**
-     * Deletes an existing FAQ model.
+     * Deletes an existing Faq model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -113,15 +110,15 @@ class FAQController extends Controller
     }
 
     /**
-     * Finds the FAQ model based on its primary key value.
+     * Finds the Faq model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return FAQ the loaded model
+     * @return Faq the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = FAQ::findOne($id)) !== null) {
+        if (($model = Faq::findOne($id)) !== null) {
             return $model;
         }
 

@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\FAQ;
+use app\models\Faq;
 
 /**
- * SearchFAQ represents the model behind the search form of `app\models\FAQ`.
+ * SearchFaq represents the model behind the search form of `app\models\Faq`.
  */
-class SearchFAQ extends FAQ
+class SearchFaq extends Faq
 {
     /**
      * {@inheritdoc}
@@ -41,7 +41,7 @@ class SearchFAQ extends FAQ
      */
     public function search($params)
     {
-        $query = FAQ::find();
+        $query = Faq::find();
 
         // add conditions that should always apply here
 

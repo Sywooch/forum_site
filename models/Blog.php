@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "blog".
@@ -10,6 +11,7 @@ use Yii;
  * @property int $id
  * @property string $text
  * @property string $title
+ * @property string $img
  * @property string $date
  * @property string $user_id
  */
@@ -24,6 +26,11 @@ class Blog extends \yii\db\ActiveRecord
     }
 
     /**
+     * @var UploadedFile file attribute
+     */
+    public $imgFile;
+
+    /**
      * {@inheritdoc}
      */
     public function rules()
@@ -32,7 +39,8 @@ class Blog extends \yii\db\ActiveRecord
             
             [['text', 'title'], 'required'],
             [['text'], 'string'],
-            [['title'], 'string', 'max' => 100],
+            [['title', 'img'], 'string', 'max' => 100],
+            [['imgFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['date'], 'safe'],
             [['user_id'], 'integer'],
             [['date'], 'date', 'format' => 'php:Y-m-d'],
@@ -49,7 +57,8 @@ class Blog extends \yii\db\ActiveRecord
             'id' => 'ID',
             'text' => 'Текст',
             'title' => 'Заголовок',
-            
+            'img' => 'Изображение',
+            'imgFile' => ' Нажмите сюда, чтобы добавить изображение',
         ];
     }
 }

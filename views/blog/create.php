@@ -45,6 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--breadcrumbs end-->
 <div class="blog-create container">
 
+    <?php if (Yii::$app->session->getFlash('errorImg')): ?>
+        <div class="alert alert-danger alert-dismissible flash border_radius" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            Ошибка! Попробуйте снова или обратитесь в тех-поддержку.
+        </div>
+    <?php endif; ?>
 
     <?= $this->render('_form', [
         'model' => $model,

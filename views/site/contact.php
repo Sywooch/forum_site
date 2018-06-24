@@ -49,10 +49,24 @@ $this->title = 'Отзывы';
     </div>
     <!--breadcrumbs end-->
 
-
 <div class="site-contact">
 
     <div class="media container">
+    <?php if (Yii::$app->session->getFlash('success')): ?>
+      <div class="alert alert-success alert-dismissible flash" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+        Отзыв удалён.
+      </div>
+    <?php elseif(Yii::$app->session->getFlash('error')):?>
+      <div class="alert alert-danger alert-dismissible flash" role="alert" >
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                      aria-hidden="true">&times;</span></button>
+          Произошла ошибка! Обратитесь в службу поддержки.
+          
+      </div>
+    <?php endif; ?>
+    <?php if($contacts != null):?>
       <h3>
         Отзывы пользователей
       </h3>
@@ -91,6 +105,15 @@ $this->title = 'Отзывы';
               <?=$url = date('d ', strtotime($contact->date)) . $rus_month_begin
                     . date(' Y', $weekDate);?>
             </span>
+            <?php if(Yii::$app->user->identity->status == 10):?>
+              <span class="pull-right">
+              |
+                <a href="<?=Url::to(['/site/delete-contact', 'id' => $contact->id])?>">
+                  <i class="fa fa-times-circle"></i>
+                </a>
+              |
+              </span>
+            <?php endif;?>
           </h4>
           <p>
             <?=$contact->body?>
@@ -100,10 +123,11 @@ $this->title = 'Отзывы';
           <!--end media-->
         </div>
       <?php endforeach; ?>
+    <?php endif;?>              
     </div>
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
-        <div  align="center" class="alert alert-success">
+        <div  align="center" class="alert alert-success container">
             Спасибо за отзыв!
         </div>
 
@@ -112,8 +136,8 @@ $this->title = 'Отзывы';
          <div class="row">
         
         <div class="col-lg-5 col-sm-5 address" style="margin-left:+30%;">
-          <h3>
-            Напишите несколько строк и мы вас услышим
+          <h3 style="color:#48cfad;">
+            Поделитесь своим мнением о приложении
           </h3>
           
           <div class="contact-form">

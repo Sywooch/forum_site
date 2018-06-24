@@ -9,6 +9,8 @@ use app\models\SearchBlog;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+// img
+use yii\web\UploadedFile;
 
 /**
  * BlogController implements the CRUD actions for Blog model.
@@ -100,9 +102,33 @@ class BlogController extends Controller
     public function actionCreate()
     {
         $model = new Blog();
+    
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            // $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);  
+            // if ($model->imgFile) {
+            //     if ($model->validate()) {
+            //         if ($model->imgFile) {
+            //             if ($model->img != 'user_default.png' && $model->img != null) {
+            //                 unlink('upload/global/' . $model->img);
+            //                 $model->img = $model->title . Yii::$app->getSecurity()->generateRandomString(7) . '.' . $model->imgFile->extension;
+            //             }
+            //             $model->img = $model->title . Yii::$app->getSecurity()->generateRandomString(7) . '.' . $model->imgFile->extension;
+            //         }
+            //         $model->imgFile->saveAs('upload/global/' . $model->img);
+            //         if($model->save()){
+            //             Yii::$app->session->setFlash('successImg');
+            //             return $this->redirect(['view', 'id' => $model->id]);
+            //         }
+            //     } else {
+            //         Yii::$app->session->setFlash('errorImg');
+            //         return $this->refresh();
+            //     }
+            // }
+           
         }
 
         return $this->render('create', [

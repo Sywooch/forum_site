@@ -22,7 +22,8 @@ $config = [
             'baseUrl' => ''
         ],
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class'        => 'yii\caching\FileCache',
+            // 'useMemcached' => false,
         ],
         'user' => [
             'identityClass' => 'bizley\podium\models\User',
@@ -86,6 +87,18 @@ $config = [
             'adminId' => 1,
             'userPasswordField' => 'password'
         ],
+    ],
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\PathController',
+			'access' => ['@'],
+			'root' => [
+                'baseUrl'=>'@web',
+                'basePath'=>'@webroot',
+				'path' => 'upload/global',
+				'name' => 'Global'
+			],
+        ]
     ],
     'params' => $params,
 ];
