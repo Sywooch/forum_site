@@ -8,7 +8,7 @@ $config = [
     'language' => 'ru-RU',
 	'layout' => 'kaso',
     'charset' => 'utf-8',
-    'name' => 'Клевер - Игра',
+    'name' => 'Клевер - Игра c Призами',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'podium'],
     'aliases' => [
@@ -23,7 +23,6 @@ $config = [
         ],
         'cache' => [
             'class'        => 'yii\caching\FileCache',
-            // 'useMemcached' => false,
         ],
         'user' => [
             'identityClass' => 'bizley\podium\models\User',

@@ -244,7 +244,7 @@ $this->title = Yii::$app->name ;
   </div>
   <div class="h-service-content wow fadeInUp">
     <h3>
-      Вопросы
+      F.A.Q.
     </h3>
     <p>
       Ответы на Часто Задаваемые Вопросы
@@ -276,7 +276,7 @@ $this->title = Yii::$app->name ;
   </div>
 </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-4" style="max-height: 215px;">
 <div class="h-service">
   <div class="icon-wrap ico-bg round-fifty wow fadeInDown">
     <i class="fa fa-users">
@@ -304,7 +304,7 @@ $this->title = Yii::$app->name ;
 
 </div>
 <!-- service end -->
-<div class="hr">
+<div class="hr" style="margin-top:1px;">
 <span class="hr-inner"></span>
 </div>
 

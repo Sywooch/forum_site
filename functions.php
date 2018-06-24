@@ -14,8 +14,8 @@ function viewError($model)
       }
 }
 
-$data = $cache->getOrSet($key, function () {
-    return $this->calculateSomething();
-});
+// $data = $cache->getOrSet($key, function () {
+//     return $this->calculateSomething();
+// });
 
 ?>

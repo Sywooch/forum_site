@@ -62,10 +62,6 @@ AppAsset::register($this);
         <li>
 				  <a href="/#download">Скачать</a>
 				</li>
-
-        <li>
-				  <a href="<?=Url::to('/site/question')?>">Предложить Вопрос</a>
-        </li>
         
         <li>
 				  <a href="<?=Url::to('/blog/user-view')?>">Новости</a>
@@ -84,18 +80,45 @@ AppAsset::register($this);
         </li>
         
         <li>
-          <?php if(Yii::$app->user->isGuest):?>  
+          <?php 
+          $name = Yii::$app->user->identity->username;
+            
+          ?>
+          <!-- Our Special dropdown has class show-on-hover -->
+          <style>
+            .show-on-hover:hover > ul.dropdown-menu {
+              display: block;    
+          }
+          </style>
+           <?php if(Yii::$app->user->isGuest):?>  
             <a class="btn btn-warning" style="color: #fff;background: #48cfad;" 
               href="<?=Url::to('/site/login')?>">
                 Вход
             </a>
-          <?php else:?>
-            <a class="btn btn-warning" data-method="post"
-             style="color: #fff;background: #48cfad;" 
-              href="<?=Url::to('/site/logout')?>">
-                Выход
-            </a>
-          <?php endif;?>  
+        <?php else:?>
+          <div class="btn-group show-on-hover" s>
+            <button type="button" class="btn dropdown-toggle"
+            style="color: #fff;background: #48cfad;min-height:40px;"  data-toggle="dropdown">
+              <?=$name?> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+              <a class="btn btn" data-method="post"
+              
+                href="<?=Url::to('/podium/profile')?>">
+                  Профиль
+              </a>
+              </li>
+              <li>
+                <a class="btn btn" data-method="post"
+                  href="<?=Url::to('/site/logout')?>">
+                    Выход
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        <?php endif;?>
         </li>
 				
               </ul>
@@ -109,17 +132,9 @@ AppAsset::register($this);
   <!--small footer start -->
   <footer class="footer-small">
         <div class="container">
-            <div class="row" style="color:#fff;">
-          
-            <div class="col-lg-3 col-sm-3">
-                <div class="page-footer wow fadeInUp" >
-                  <h3 align="center" style="margin-top:23px;">
-                    Клевер - Игра
-                  </h3>          
-                </div>
-              </div>
+            <div class="row" style="color:#fff;margin-left:70px;">
               
-              <div class="col-lg-3 col-sm-3">
+              <div class="col-lg-3 col-sm-3" style="width:35%">
                 <div class="page-footer wow fadeInUp" >
                   <br>
                   <h5 class="footer_margin_left"> <strong>Для начала</strong></h5>

@@ -48,22 +48,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::submitButton('<span class="glyphicon glyphicon-ok-sign"></span> ' . Yii::t('podium/view', 'Sign in'), ['class' => 'btn btn-block btn-primary', 'name' => 'login-button']) ?>
                 </div>
-                <div class="form-group">
-                    <a href="<?= Url::to(['account/reset']) ?>" class="pull-right"><?= Yii::t('podium/view', 'Reset Password') ?></a>
-                    <a href="<?= Url::to(['account/reactivate']) ?>" class="pull-left"><?= Yii::t('podium/view', 'Resend activation link') ?></a>
+                <div class="form-group" align="center">
+                    
+                    Вы не зарегистрированы?
+                    <br>
+                    <a style="margin-left:85px;margin-right:auto;" href="<?= Url::to(['/podium/register']) ?>" class="pull-left">Создать аккаунт</a>
+                    <br>
+                    <a style="margin-right:90px;margin-left:auto;" href="<?= Url::to(['/podium/account/reset']) ?>" class="pull-right"><?= Yii::t('podium/view', 'Reset Password') ?></a>
+                    <br>
+                    <a href="<?= Url::to(['/podium/account/reactivate']) ?>" class="pull-left"><?= Yii::t('podium/view', 'Resend activation link') ?></a>
                 </div>
             <?php ActiveForm::end(); ?>
-             
-                <div class="registration">
-                    Вы не зарегистрированы?
-                    <a class="" href="/podium/register">
-                        Создать аккаунт
-                    </a>
-                </div>
 
             </div>
 
+
           </form>
+         
           </div>
         </div>
     </div>
