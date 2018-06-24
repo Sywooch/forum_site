@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'rememberMe')->checkBox()->label(null, ['data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => Yii::t('podium/view', "Don't use this option on public computers!")]) ?>
                 </div>
                 <div class="form-group">
-                    <?= Html::submitButton('<span class="glyphicon glyphicon-ok-sign"></span> ' . Yii::t('podium/view', 'Sign in'), ['class' => 'btn btn-block btn-primary', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton('<span class="glyphicon glyphicon-ok-sign"></span> ' . Yii::t('podium/view', 'Sign in'), ['class' => 'btn btn-block btn-primary', 'name' => 'login-button', 'style'=>"color: #fff;background: #48cfad;"]) ?>
                 </div>
                 <div class="form-group" align="center">
                     

@@ -63,9 +63,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
 
-         <a href="<?=Url::to('/blog/index')?>" class= 'btn btn-info'>
-            Просмотр Новостей
-        </a>
     </p>
 
     <?= DetailView::widget([
@@ -77,5 +74,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             ],
     ]) ?>
+
+    <a href="<?=Url::to('/blog/index')?>" class='btn btn-info' style="margin-bottom:19px;"/>
+            Назад
+        </a>
 
 </div>

@@ -89,23 +89,8 @@ $ar = [
                     <?=$rus_month_begin = $Month_r[$begin_month] . date(' Y');?> 
                   </span>
                 </div>
-              </div>
-              <div class="col-lg-10 col-sm-10">
-                <div class="blog-img">
-                  <?php if(Yii::$app->user->identity->status == 10):?>
-                    <a class="btn btn-warning" href="<?=Url::to('/blog/index')?>"
-                      style="color: #fff;background: #48cfad;margin-bottom: 10px;">
-                      Просмотреть новости
-                    </a>
-                  <?php endif;?>
-                  <img src="/img/<?=$ar[$post->id]?>" alt=""/>
-                </div>
 
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-2 col-sm-2 text-right">
-                <div class="author">
+                 <div class="author">
                   Автор
                   <a href="#">
                       <?php
@@ -139,15 +124,28 @@ $ar = [
                     </li>
                     
                     <li>
-                      <a href="javascript:;">
-                        15 comments
-                      </a>
+                      
+                        <?php 
+                        $comments = sizeof(\app\models\Comment::find(['post_id' => $post->id])->all());
+                        ?>
+                        Комментариев:
+                          <?=$comments?>
+                      
                     </li>
                   </ul>
                 </div>
               </div>
+              
               <div class="col-lg-10 col-sm-10">
-                <h1>
+                <div class="blog-img">
+                  <?php if(Yii::$app->user->identity->status == 10):?>
+                    <a class="btn btn-warning" href="<?=Url::to('/blog/index')?>"
+                      style="color: #fff;background: #48cfad;margin-bottom: 10px;">
+                      Просмотреть новости
+                    </a>
+                  <?php endif;?>
+                  <img src="/img/<?=$ar[$post->id]?>" alt=""/>
+                  <h1>
                   <a href="blog-detail.html">
                     <?php 
                       echo "<p align='center'>" .
@@ -161,62 +159,21 @@ $ar = [
                     ;?>
                   </a>
                 </h1>
-                <p>
+                  <p>
                   <?php echo $post->text?>
                 </p>
-                
+                </div>
+
               </div>
             </div>
+            
           </div>
         <?php endforeach;?> 
-
-          <div class="text-center">
-            <ul class="pagination">
-              <li>
-                <a href="#">
-                  «
-                </a>
-              </li>
-              <li class="active">
-                <a href="#">
-                  1
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  2
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  3
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  4
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  5
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  »
-                </a>
-              </li>
-            </ul>
-          </div>
-
         </div>
 
         <div class="col-lg-3">
           <div class="blog-side-item">
-            <div class="search-row">
-              <input type="text" class="form-control" placeholder="Search here">
-            </div>
+            
             <div class="category">
               <h3>
                 Категории

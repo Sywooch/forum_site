@@ -11,6 +11,12 @@ use yii\grid\GridView;
 
 $this->title = $post->title;
 $this->params['breadcrumbs'][] = $this->title;
+$ar = [
+  'nintendo.jpg',
+  'cach.jpg',
+  'nintendo.jpg',
+  'cach.jpg',
+];
 ?>
 
 
@@ -54,32 +60,34 @@ $this->params['breadcrumbs'][] = $this->title;
 
           <div class="blog-item">
             <div class="row">
-              <div class="col-lg-2 col-sm-2">
+            <div class="col-lg-2 col-sm-2">
                 <div class="date-wrap">
-                <span>
-              <?php 
-                setlocale(LC_ALL, 'ru_RU.UTF-8');
-                $Month_r = array(
-                    "01" => "января",
-                    "02" => "февраля",
-                    "03" => "марта",
-                    "04" => "апреля",
-                    "05" => "мая",
-                    "06" => "июня",
-                    "07" => "июля",
-                    "08" => "августа",
-                    "09" => "сентября",
-                    "10" => "октября",
-                    "11" => "ноября",
-                    "12" => "декабря");
-                $date = strtotime($post->date);
-                $begin_month = date('m', strtotime($post->date)); // месяц на eng
-                $rus_month_begin = $Month_r[$begin_month];
-              ?>
-              <?php $url = date('d ', strtotime($post->date)) . $rus_month_begin
-                    . date(' Y');?>
-            </span>  
-                <span class="date">
+                  <span>
+                    <?php 
+                      setlocale(LC_ALL, 'ru_RU.UTF-8');
+                      $Month_r = array(
+                          "01" => "января",
+                          "02" => "февраля",
+                          "03" => "марта",
+                          "04" => "апреля",
+                          "05" => "мая",
+                          "06" => "июня",
+                          "07" => "июля",
+                          "08" => "августа",
+                          "09" => "сентября",
+                          "10" => "октября",
+                          "11" => "ноября",
+                          "12" => "декабря");
+                      $date = strtotime($post->date);
+                      $begin_month = date('m', strtotime($post->date)); // месяц на eng
+                      $rus_month_begin = $Month_r[$begin_month];
+                    ?>
+                    <?php
+                      $url = date('d ', strtotime($post->date)) . $rus_month_begin
+                        . date(' Y');
+                      ?>
+                  </span>  
+                  <span class="date">
                     <?=date('d ', $date)?>
                   </span>
                   <span class="month">
@@ -87,24 +95,8 @@ $this->params['breadcrumbs'][] = $this->title;
                   </span>
                 </div>
 
-              </div>
-              <div class="col-lg-10 col-sm-10">
-                <div class="blog-img">
-                  <?php if(Yii::$app->user->identity->status == 10):?>
-                      <a class="btn btn-warning" href="<?=Url::to('/blog/index')?>"
-                        style="color: #fff;background: #48cfad;margin-bottom: 10px;">
-                        Просмотреть новости
-                      </a>
-                  <?php endif;?>
-                  <img src="/img/blog/img7.jpg" alt=""/>
-                </div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-2 col-sm-2 text-right">
-                <div class="author">
-                  By
+                 <div class="author">
+                  Автор
                   <a href="#">
                       <?php
 
@@ -118,7 +110,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="st-view">
                   <ul class="list-unstyled">
                     <li>
-                      <a href="javascript:;">
+                      <!-- <a href="javascript:;"> -->
                         <?php 
                             /*Счётчик просмотров новостей*/ 
                             $f=fopen("stat.dat". $post->id,"a+");
@@ -133,18 +125,32 @@ $this->params['breadcrumbs'][] = $this->title;
                             
                             echo "Количество просмотров: $count"; 
                         ?>
-                      </a>
+                      <!-- </a> -->
                     </li>
                     
                     <li>
-                      <a href="javascript:;">
-                        <?php echo sizeof($comments) . " комментариев";?> 
-                      </a>
+                      
+                        <?php 
+                        $commentSize = sizeof(\app\models\Comment::find(['post_id' => $post->id])->all());
+                        ?>
+                        Комментариев:
+                          <?=$commentSize?>
+                      
                     </li>
                   </ul>
                 </div>
               </div>
+              
               <div class="col-lg-10 col-sm-10">
+                <div class="blog-img">
+                  <?php if(Yii::$app->user->identity->status == 10):?>
+                      <a class="btn btn-warning" href="<?=Url::to('/blog/index')?>"
+                        style="color: #fff;background: #48cfad;margin-bottom: 10px;">
+                        Просмотреть новости
+                      </a>
+                  <?php endif;?>
+                  <img src="/img/<?=$ar[$post->id]?>" alt=""/>
+                </div>
                 <h1>
                   <a href="blog-detail.html">
                     <?php echo $post->title?>
@@ -203,18 +209,16 @@ $this->params['breadcrumbs'][] = $this->title;
                   <?php ActiveForm::end();?>
                   
                 </div>
-               
+
               </div>
             </div>
+            
           </div>
         
         </div>
 
         <div class="col-lg-3">
           <div class="blog-side-item">
-            <div class="search-row">
-              <input type="text" class="form-control" placeholder="Search here">
-            </div>
             <div class="category">
               <h3>
                 Категории
@@ -277,6 +281,15 @@ $this->params['breadcrumbs'][] = $this->title;
                         <p>
                             <?=substr($post->text, 0, 450) . "..."?>
                         </p>
+                        <?php
+                                  echo Html::a('Читать',
+                                      ['/blog/post', 'id' => $post->id, ],
+                                      [
+                                        'class' => '',
+                                        'data' => ['method' => 'post'],
+                                      ])
+                                  . "</p>";
+                                ?>
                         </div>
                     </div>
             </div>

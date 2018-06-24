@@ -54,7 +54,7 @@ class Blog extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'Номер',
             'text' => 'Текст',
             'title' => 'Заголовок',
             'img' => 'Изображение',

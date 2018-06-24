@@ -73,11 +73,13 @@ $this->title = 'Отзывы';
       <hr>
 
       <?php foreach($contacts as $contact):?>
+      <div class="row" style="margin-bottom:25px;">
+     
         <a class="pull-left" href="javascript:;">
-          <img class="media-object" src="/img/person_1.png" alt="">
+          <img style="" class="media-object" src="/img/person_1.png" alt="">
         </a>
-        <div class="media-body">
-          <h4 class="media-heading">
+        <div class="media-body" style="margin-top:15px;" >
+          <h4 class="media-heading" style="margin-left:15px;">
             <?=$contact->name?>
             <span>
               |
@@ -103,7 +105,7 @@ $this->title = 'Отзывы';
                 $rus_month_begin = $Month_r[$begin_month];
               ?>
               <?=$url = date('d ', strtotime($contact->date)) . $rus_month_begin
-                    . date(' Y', $weekDate);?>
+                    . date(' Y');?>
             </span>
             <?php if(Yii::$app->user->identity->status == 10):?>
               <span class="pull-right">
@@ -115,13 +117,14 @@ $this->title = 'Отзывы';
               </span>
             <?php endif;?>
           </h4>
-          <p>
+          <p style="margin-left:15px;">
             <?=$contact->body?>
           </p>        
           <!--end media-->
           <hr>
           <!--end media-->
         </div>
+      </div>
       <?php endforeach; ?>
     <?php endif;?>              
     </div>

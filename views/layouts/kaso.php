@@ -96,9 +96,9 @@ AppAsset::register($this);
                 Вход
             </a>
         <?php else:?>
-          <div class="btn-group show-on-hover" s>
+          <div class="btn-group show-on-hover">
             <button type="button" class="btn dropdown-toggle"
-            style="color: #fff;background: #48cfad;min-height:40px;"  data-toggle="dropdown">
+            style="color: #fff;background: #48cfad;min-height:40px;margin-left:3px;"  data-toggle="dropdown">
               <?=$name?> <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
@@ -137,7 +137,7 @@ AppAsset::register($this);
               <div class="col-lg-3 col-sm-3" style="width:35%">
                 <div class="page-footer wow fadeInUp" >
                   <br>
-                  <h5 class="footer_margin_left"> <strong>Для начала</strong></h5>
+                  <h5 class="footer_margin_left"> <strong>Основное</strong></h5>
                   <ul class="page-footer-list">
                   <li>
                     
@@ -162,7 +162,7 @@ AppAsset::register($this);
                <div class="col-lg-3 col-sm-3">
                 <div class="page-footer wow fadeInUp" >
                   <br>
-                  <h5 class="footer_margin_left"> <strong>О Нас</strong></h5>
+                  <h5 class="footer_margin_left"> <strong>Об Игре</strong></h5>
                   <ul class="page-footer-list">
                   <li>
                       
@@ -173,8 +173,12 @@ AppAsset::register($this);
                       <a href="<?=Url::to('/site/contact')?>">Отзывы</a>
                     </li>
                   </ul>
-                  <ul class="social-link-footer list-unstyled" style="margin-right: 122px;">
-                  <li class="wow flipInX pull-right" data-wow-duration="2s" data-wow-delay=".1s"><a href="https://vk.com/clever"><i class="fa fa-vk"></i></a></li>
+                  <ul class="social-link-footer list-unstyled" style="margin-right: 110px;">
+                  <li class="wow flipInX pull-right" data-wow-duration="2s" data-wow-delay=".1s">
+                      <a href="https://vk.com/clever">
+                        <i class="fa fa-vk"></i>
+                      </a>
+                  </li>
               </ul>  
                 </div>
               </div>
